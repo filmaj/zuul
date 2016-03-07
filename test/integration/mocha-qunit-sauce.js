@@ -21,9 +21,15 @@ test('mocha-qunit - sauce', function(done) {
     scout_browser(function(err, allBrowsers) {
         assert.ifError(err);
 
+        /*
         var flattenBrowser = require('../../lib/flatten_browser');
         var browsersToTest = require('browzers').pullRequest;
         var browsers = flattenBrowser(browsersToTest, allBrowsers);
+        */
+
+        browsers = [{ name: 'iphone', version: '9.2', platform: 'Mac 10.10' }];
+        //,
+        //  { name: 'android', version: '5.1', platform: 'Linux' }];
         var total = browsers.length;
 
         browsers.forEach(zuul.browser.bind(zuul));
